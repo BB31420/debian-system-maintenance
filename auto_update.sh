@@ -43,9 +43,16 @@ update_system() {
 # Function to clean log files
 clean_logs() {
     log "Cleaning log files..."
-    find /var/log -type f -name '*.log' -not -name "$(basename "$log_file")" -exec truncate -s 0 {} \;
+    find /var/log -type f -name '*.log' \
+        -not -name "$(basename "$log_file")" \
+        -not -name "system.log" \
+        -not -name "security.log" \
+        -not -name "auth.log" \
+        -exec truncate -s 0 {} \;
     log "Log files cleaned."
 }
+
+
 
 # Main script
 if [[ $EUID -ne 0 ]]; then
