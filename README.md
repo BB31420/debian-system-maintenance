@@ -23,9 +23,9 @@ sudo /path/to/auto_update.sh
 ## Scheduling Automatic Execution
 To automate the execution of the script at specific intervals, you can use the cron utility. Follow these steps:
 
-1 .Open the crontab configuration file for editing:
+1 .Open the ROOT crontab configuration file for editing:
 ```
-crontab -e
+sudo crontab -e
 ```
 2. Add a new entry to the crontab file to specify the schedule and command to run the script. For example, to run the script every day at 3:00 AM, add the following line:
 ```
